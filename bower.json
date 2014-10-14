@@ -1,0 +1,22 @@
+{
+  "name": "hitop",
+  "version": "0.0.0",
+  "authors": [
+    "Daryl Roberts <d@rbrts.io>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.2.0",
+    "refills": "thoughtbot/refills#~0.0.2",
+    "angular": "~1.2.26",
+    "bootstrap-sass-official": "~3.2.0+2"
+  },
+  "private": true
+}

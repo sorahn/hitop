@@ -1,0 +1,178 @@
+@import "requirements"
+
+// Screen Sizes
+// These were stolen from bootstrap.
+// Redefined here so they can be overridden as necessary.
+$screen-xs: 480px !default
+$screen-sm: 768px !default
+$screen-md: 992px !default
+$screen-lg: 1200px !default
+
+// Variables
+$hitop-bg: #333 !default
+$hitop-color: white !default
+$hitop-height-xs: 2.5rem !default
+$hitop-height-sm: 3.5rem !default
+
+
+// Main Class
+.hitop
+
+  // .hitop__bar
+  &__bar
+    +display(flex)
+    +align-items(stretch)
+    +flex-direction(row)
+    background: $hitop-bg
+
+    &.bar--reverse
+      +flex-direction(row-reverse)
+
+    // .hitop__bar--none
+    &--none
+      +flex(none)
+
+    // .hitop__bar--auto
+    &--auto
+      +flex(auto)
+      +clearfix
+
+      ul
+        +clearfix
+        float: right
+        margin: 0
+        padding: 0
+        list-style: none
+
+      li
+        display: block
+        float: left
+        font-size: 80%
+
+    .link
+      color: $hitop-color
+      padding: 0 .5em
+      line-height: $hitop-height-xs
+      text-transform: uppercase
+      font-weight: bold
+      display: inline-block
+      text-decoration: none
+
+      @media (min-width: $screen-sm)
+        line-height: $hitop-height-sm
+
+      @media (min-width: $screen-lg)
+        padding: 0 px(11)
+
+  &__links
+    letter-spacing: (25rem / 1000)
+
+    @media (min-width: $screen-md)
+      display: none
+
+  // the form needs 11px of padding to get to the line-height.
+  &__form
+    display: none
+    padding: px(11)
+
+    @media (min-width: $screen-md)
+      display: block
+
+    // Something is up with the line-heights between inputs and buttons
+    // even though they're the same.  Adding one more padding to the top
+    // of the buttons seems to resolve the alignment issues.
+    .btn
+      padding-top: px(7)
+
+    .form-group
+      margin-right: .5em
+
+// $sizes: (xs: $screen-xs, sm: $screen-sm, md: $screen-md, lg: $screen-lg)
+
+@each $size in xs, sm, md, lg
+  .#{$size}-up
+    &, &-ib, &-il
+      display: none
+
+    // $query: map-get($sizes, $size)
+    @media (min-width: $screen-xs)
+      &
+        display: block
+
+      &-ib
+        display: inline-block
+
+      &-il
+        display: inline
+
+
+
+  .xs-up
+    display: none
+
+
+  .sm-up
+    &, &-ib
+      display: none
+
+    @media (min-width: $screen-sm)
+      &
+        display: block
+
+      &-ib
+        display: inline-block
+
+  .md-up
+    display: none
+
+    @media (min-width: $screen-md)
+      display: block
+
+  .lg-up
+    display: none
+
+    @media (min-width: $screen-lg)
+      display: block
+
+
+  // &__bottom
+
+  // &__fcs
+
+  // &__logo
+
+
+
+  // // .hitop__user
+  // &__user
+  //   +flex(1 1 auto)
+
+  //   @media screen and (min-width: 1024px)
+
+  //   .link
+  //     font-size: .9rem
+  //     text-transform: uppercase
+
+
+  // // .hitop__nav
+  // &__nav
+  //   +flex(0 1 auto)
+
+  //   .link
+  //     font-size: .7rem
+
+
+  // // .hitop__menu
+  // &__menu
+  //   margin: 0
+  //   padding: 0
+  //   list-style: none
+
+  //   & > li
+  //     display: inline-block
+  //     padding: 0 .5em
+  //     line-height: $hitop-height
+
+  //   .link
+  //     color: #999
+  //     letter-spacing: (25em / 1000)
